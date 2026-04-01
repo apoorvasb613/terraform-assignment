@@ -185,15 +185,12 @@ All the core system pods were running fine — `aws-node`, `coredns`, and `kube-
 
 Checked the VPC console to confirm `dev-vpc` was available:
 
-![dev-vpc showing as Available in the AWS VPC console](screenshots/Screenshot_from_2026-04-01_11-53-34.png)
+![dev-vpc showing as Available in the AWS VPC console](vpc_console.png)
 
 Checked the EKS console — cluster status was Active with Kubernetes 1.31:
 
-![EKS clusters console showing dev-eks-cluster as Active](screenshots/Screenshot_from_2026-04-01_11-54-17.png)
+![EKS clusters console showing dev-eks-cluster as Active](eks.png)
 
-And confirmed the managed node group was active with AMI version `1.31.14-20260318`:
-
-![Node group details in EKS console — desired size 1, status Active](screenshots/Screenshot_from_2026-04-01_11-56-00.png)
 
 ---
 
