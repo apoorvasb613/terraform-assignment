@@ -185,7 +185,7 @@ All the core system pods were running fine — `aws-node`, `coredns`, and `kube-
 
 Checked the VPC console to confirm `dev-vpc` was available:
 
-![dev-vpc showing as Available in the AWS VPC console](vpc_console.png)
+![dev-vpc showing as Available in the AWS VPC console](vpcconsole.png)
 
 Checked the EKS console — cluster status was Active with Kubernetes 1.31:
 
