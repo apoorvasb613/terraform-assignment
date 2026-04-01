@@ -13,25 +13,6 @@ This is a hands-on project where I used Terraform to spin up an Amazon EKS clust
 
 I also did this for two environments — `dev` and `qa` — using the same module structure.
 
----
-
-## Project Layout
-
-```
-terraform_assignment/
-└── environments/
-    ├── dev/
-    │   ├── main.tf
-    │   ├── provider.tf
-    │   └── backend.tf
-    └── qa/
-        ├── main.tf
-        ├── provider.tf
-        └── backend.tf
-```
-
----
-
 ## The Terraform Files
 
 **`provider.tf`** — sets up the AWS provider pointing to `us-east-2`
@@ -194,20 +175,8 @@ Checked the EKS console — cluster status was Active with Kubernetes 1.31:
 
 ---
 
-### 6. QA environment
+### 6. QA AND PROD environment
 
-I repeated the same setup for a `qa` environment. The `qa-eks-cluster` is also running and visible in the EKS console with its own node group.
-
+I repeated the same setup for a `qa` AND `Prod`  environment. 
 ---
 
-## Remote State
-
-One thing I made sure to set up properly was remote state. Without this, Terraform state would only live locally and any team collaboration would be a mess. The S3 backend stores the state file and DynamoDB handles locking — you can see Terraform acquiring and releasing the lock in the apply output.
-
----
-
-## Things to keep in mind
-
-- The `t3.micro` node is fine for learning but don't expect to run real workloads on it
-- NAT Gateway is disabled here to keep costs down — worker nodes use public IPs instead
-- For production you'd want private subnets for the nodes and a NAT Gateway for outbound traffic
