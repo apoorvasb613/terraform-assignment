@@ -119,7 +119,7 @@ aws ec2 describe-subnets --region us-east-2 \
 
 This confirmed that `dev-vpc` was created with the right CIDR and both subnets showed up in the correct AZs.
 
-![VPC and subnet verification via AWS CLI](screenshots/Screenshot_from_2026-03-30_22-28-21.png)
+![VPC and subnet verification via AWS CLI](vpc.png)
 
 Also verified the EC2 instance that serves as the worker node:
 
@@ -129,7 +129,7 @@ aws ec2 describe-instances --region us-east-2 \
   --output table
 ```
 
-![t3.micro instance running in us-east-2b](screenshots/Screenshot_from_2026-03-30_22-29-56.png)
+![t3.micro instance running in us-east-2b](ec2.png)
 
 And confirmed the IAM roles that were auto-created for the cluster and node group:
 
@@ -139,7 +139,7 @@ aws iam list-roles \
   --output table
 ```
 
-![EKS IAM roles — cluster role and node group role](screenshots/Screenshot_from_2026-03-30_22-30-39.png)
+![EKS IAM roles — cluster role and node group role](roles.png)
 
 ---
 
@@ -151,7 +151,7 @@ terraform state list
 
 This listed all 44 resources Terraform is tracking — everything from the EKS cluster and OIDC provider to security group rules and IAM policy attachments.
 
-![terraform state list output](screenshots/Screenshot_from_2026-03-30_22-32-14.png)
+![terraform state list output](states.png)
 
 ---
 
@@ -165,7 +165,7 @@ kubectl get nodes -o wide
 
 The node came up as `Ready` with Kubernetes version `v1.31.14-eks-f69f56f`, running Amazon Linux 2023 with containerd as the runtime.
 
-![kubectl get nodes showing the worker node as Ready](screenshots/Screenshot_from_2026-03-30_22-33-01.png)
+![kubectl get nodes showing the worker node as Ready](nodes.png)
 
 Then verified all the system pods and services:
 
@@ -177,7 +177,7 @@ kubectl get svc -A
 
 All the core system pods were running fine — `aws-node`, `coredns`, and `kube-proxy` were all healthy.
 
-![kubectl get pods -A showing all kube-system pods running](screenshots/Screenshot_from_2026-03-30_22-33-38.png)
+![kubectl get pods -A showing all kube-system pods running](pods_svc_namespace.png)
 
 ---
 
