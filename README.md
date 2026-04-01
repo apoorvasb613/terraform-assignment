@@ -79,7 +79,7 @@ terraform plan
 terraform apply
 ```
 
-The apply created **44 resources** in total. The EKS cluster itself took around 9 minutes, and then the managed node group came up in about 2 more minutes.
+
 
 ![terraform apply in progress — IAM roles and VPC being created](creation.png)
 
